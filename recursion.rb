@@ -1,3 +1,5 @@
+require 'byebug'
+
 def range(num1, num2)
     return [] if num2 <= num1
 
@@ -55,10 +57,16 @@ end
 def bsearch(array, target)
     return nil if !array.include?(target)
 
-    if target == array.last
-        array.last.index(target)
+    mid_idx = array.length / 2
+    left = (0...mid_idx)
+    right = (mid_idx+1..-1)
+
+    if array[mid_idx] == target
+        return mid_idx
+    elsif array[mid_idx] < target
+        1 + mid_idx + bsearch(array[right], target)
     else
-        bsearch(array[0...-1], target)
+        bsearch(array[left], target)
     end
 end
 
@@ -69,3 +77,11 @@ p bsearch([1, 3, 4, 5, 9], 5) # => 3
 p bsearch([1, 2, 3, 4, 5, 6], 6) # => 5
 p bsearch([1, 2, 3, 4, 5, 6], 0) # => nil
 p bsearch([1, 2, 3, 4, 5, 7], 6) # => nil
+
+def merge_sort(array)
+    # return array if array.length <= 1
+
+    # half = array.length / 2
+    # first_half = merge_sort(array[0...length])
+    # second_half = merge_sort(array[length..-1])
+end
