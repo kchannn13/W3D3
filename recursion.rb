@@ -34,11 +34,21 @@ def deep_dup(arr)
 
 end
 
-a =[1, [2], [3, [4]]]
-a_copy = deep_dup(a)
-a_copy_2 = a.dup
-a_copy[1] << 6
-a_copy_2[1] << 8
-p a
-p a_copy
-p a_copy_2
+# a =[1, [2], [3, [4]]]
+# a_copy = deep_dup(a)
+# a_copy_2 = a.dup
+# a_copy[1] << 6
+# a_copy_2[1] << 8
+# p a
+# p a_copy
+# p a_copy_2
+
+def fibonacci(n)
+    return [0, 1].take(n) if n <= 2
+    
+    prev_arr = fibonacci(n-1)
+    prev_arr << prev_arr[-1] + prev_arr[-2]
+end
+
+# p fibonacci(5)
+
