@@ -82,6 +82,6 @@ def merge_sort(array)
     # return array if array.length <= 1
 
     # half = array.length / 2
-    # first_half = merge_sort(array[0...length])
-    # second_half = merge_sort(array[length..-1])
+    # first_half = array[0...half]
+    # second_half = array[half..-1]
 end
