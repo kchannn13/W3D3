@@ -22,16 +22,23 @@ end
 # p exp(2,2)
 
 def deep_dup(arr)
-    # return [arr] if arr.is_a?(String)
-    return [] if arr.is_a?(Integer)
-    new_arr = []
-    arr.each do |ele|
+    # return [arr] if arr.is_a?(String) 
+    # new_arr = []
+    arr.map do |ele|
         if !ele.is_a?(Array)
-            new_arr << deep_dup(ele)
+            ele
+        else
+            deep_dup(ele)
         end
     end
 
-    new_arr
 end
 
-p deep_dup([1, [2], [3, [4]]])
+a =[1, [2], [3, [4]]]
+a_copy = deep_dup(a)
+a_copy_2 = a.dup
+a_copy[1] << 6
+a_copy_2[1] << 8
+p a
+p a_copy
+p a_copy_2
