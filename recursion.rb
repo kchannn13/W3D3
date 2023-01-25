@@ -22,15 +22,15 @@ end
 # p exp(2,2)
 
 def deep_dup(arr)
-    return [arr] if arr.is_a?(String)
+    # return [arr] if arr.is_a?(String)
+    return [] if arr.is_a?(Integer)
     new_arr = []
     arr.each do |ele|
-        if ele.is_a?(Array)
-            deep_dup(ele)
-        else
-            new_arr += ele
+        if !ele.is_a?(Array)
+            new_arr << deep_dup(ele)
         end
     end
+
     new_arr
 end
 
