@@ -52,3 +52,20 @@ end
 
 # p fibonacci(5)
 
+def bsearch(array, target)
+    return nil if !array.include?(target)
+
+    if target == array.last
+        array.last.index(target)
+    else
+        bsearch(array[0...-1], target)
+    end
+end
+
+p bsearch([1, 2, 3], 1) # => 0
+p bsearch([2, 3, 4, 5], 3) # => 1
+p bsearch([2, 4, 6, 8, 10], 6) # => 2
+p bsearch([1, 3, 4, 5, 9], 5) # => 3
+p bsearch([1, 2, 3, 4, 5, 6], 6) # => 5
+p bsearch([1, 2, 3, 4, 5, 6], 0) # => nil
+p bsearch([1, 2, 3, 4, 5, 7], 6) # => nil
